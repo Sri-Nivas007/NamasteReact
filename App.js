@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import logo from './assets/logo.webp';
+import { ResLists } from './Dynamic';
 
 const Header = () => {
   return (
@@ -8,6 +9,10 @@ const Header = () => {
       <div className="logo-container">
         <img className="logo" src={logo} />
       </div>
+      <div className="res-name">
+        <h1 className="text">Sri Nivas</h1>
+      </div>
+
       <div className="nav-items">
         <ul>
           <li>Home</li>
@@ -20,18 +25,32 @@ const Header = () => {
   );
 };
 
-const Rescards = () => {
+const Rescards = (props) => {
+  const { response } = props;
+  const { avgRatingString, costForTwo, name, cuisines, deliveryTime } =
+    response.info;
+  console.log('props', props);
   return (
     <div className="res-cards">
       <img
         className="res-logo"
-        src="https://b.zmtcdn.com/data/pictures/chains/1/50691/92d9b4053ef0965120828b4fa4eecc3b_o2_featured_v2.jpg"
+        src={
+          'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/' +
+          response.info.cloudinaryImageId
+        }
         alt=""
       />
-      <h3>Meghnana Foods</h3>
-      <h4>Vareity Rice North Style</h4>
-      <h4>4.5 stars</h4>
-      <h4>35 Mins</h4>
+      <div className="inner-cards">
+        <div className="left">
+          <h2>{name}</h2>
+          <h4>{cuisines.join(',')}</h4>
+        </div>
+        <div className="right">
+          <h4 className="rating">{avgRatingString}⭐</h4>
+          <h4 className="price">{costForTwo}</h4>
+          <h4>{response.info.sla.deliveryTime}Mins</h4>
+        </div>
+      </div>
     </div>
   );
 };
@@ -41,13 +60,9 @@ const Body = () => {
     <>
       <div className="search"> search</div>
       <div className="res-container">
-        <Rescards />
-        <Rescards />
-        <Rescards />
-        <Rescards />
-        <Rescards />
-        <Rescards />
-        <Rescards />
+        {ResLists.map((res) => (
+          <Rescards key={res.info.id} response={res} />
+        ))}
       </div>
     </>
   );

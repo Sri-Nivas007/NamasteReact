@@ -21,25 +21,28 @@
 }
 .res-cards {
   background-color: aliceblue;
-  width: 200px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   margin-top: 10px;
   border-radius: 5px;
   margin-left: 15px;
+ 
 }
 .res-cards:hover {
   cursor: pointer;
   border: 1px solid brown;
 }
 
-.res-cards > h3 {
+/* .res-cards > h2 {
   margin-top: 0px;
   padding-left: 10px;
-}
+} */
 .res-cards > img {
-  width: 185px;
-  margin: 5px;
-  padding-left: 2px;
+  width: 300px;
+  height: 170px;
+margin: 6px 15px;
+ 
+  border-radius: 20px;
 }
 
 .search {
@@ -49,4 +52,41 @@
 .res-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 5px;
+
+
+}
+.inner-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right  {
+  flex: 1;
+  text-align: right;
+}
+/* .right .price{
+  
+  margin-right:5px;
+} */
+.left > h2 {
+  margin-left: 5px;
+  margin-top: 0px;
+}
+
+.right .rating {
+  background-color: rgb(71, 143, 71);
+  margin-right: 8px;
+  border-radius: 5px;
+  display: inline;
+}
+
+
+
+.res-name .text{
+  background-color: pink;
+  font-size: 55px;
 }
