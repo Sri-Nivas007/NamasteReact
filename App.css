@@ -1,4 +1,52 @@
-body{
- 
-    color: black;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.logo {
+  height: 150px;
+  width: 150px;
+}
+.nav-items > ul {
+  display: flex;
+  font-size: 20px;
+  margin-top: 35px;
+  margin-right: 50px;
+  list-style: none;
+}
+
+.nav-items > ul > li {
+  margin-left: 20px;
+  padding: 10px;
+}
+.res-cards {
+  background-color: aliceblue;
+  width: 200px;
+  height: 300px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+.res-cards:hover {
+  cursor: pointer;
+  border: 1px solid brown;
+}
+
+.res-cards > h3 {
+  margin-top: 0px;
+  padding-left: 10px;
+}
+.res-cards > img {
+  width: 185px;
+  margin: 5px;
+  padding-left: 2px;
+}
+
+.search {
+  padding: 2px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
 }
